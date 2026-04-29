@@ -23,13 +23,14 @@ const queryClient = new QueryClient();
 
 const Shell = () => {
   const location = useLocation();
-  const isStandalone = location.pathname.startsWith("/admin") || location.pathname.startsWith("/kitchen");
+  const isStandalone = location.pathname.startsWith("/admin") || location.pathname.startsWith("/kitchen") || location.pathname.startsWith("/cuisine");
 
   if (isStandalone) {
     return (
       <Routes>
         <Route path="/admin" element={<AdminPage />} />
         <Route path="/kitchen" element={<KitchenPage />} />
+        <Route path="/cuisine" element={<KitchenPage />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     );

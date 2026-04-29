@@ -38,7 +38,7 @@ CREATE TABLE kitchen_orders (
   items jsonb NOT NULL,
   total integer NOT NULL,
   note text,
-  status text DEFAULT 'pending' CHECK (status IN ('pending', 'done')),
+  status text DEFAULT 'pending' CHECK (status IN ('pending', 'preparing', 'done')),
   created_at timestamptz DEFAULT now()
 );
 

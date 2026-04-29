@@ -14,6 +14,7 @@ export function useCreateCategory()  { const qc = useQueryClient(); return useMu
 export function useUpdateCategory()  { const qc = useQueryClient(); return useMutation({ mutationFn: ({id,u}:{id:string,u:Parameters<typeof db.updateCategory>[1]}) => db.updateCategory(id,u), onSuccess: () => qc.invalidateQueries({ queryKey: ["categories"] }) }); }
 export function useDeleteCategory()  { const qc = useQueryClient(); return useMutation({ mutationFn: db.deleteCategory,  onSuccess: () => qc.invalidateQueries({ queryKey: ["categories"] }) }); }
 export function useSaveSettings()    { const qc = useQueryClient(); return useMutation({ mutationFn: db.saveRestaurantSettings, onSuccess: () => qc.invalidateQueries({ queryKey: ["settings"] }) }); }
+export function useMarkOrderPreparing() { const qc = useQueryClient(); return useMutation({ mutationFn: db.markOrderPreparing, onSuccess: () => qc.invalidateQueries({ queryKey: ["kitchenOrders"] }) }); }
 export function useMarkOrderDone()   { const qc = useQueryClient(); return useMutation({ mutationFn: db.markOrderDone,   onSuccess: () => qc.invalidateQueries({ queryKey: ["kitchenOrders"] }) }); }
 export function useClearAllOrders()  { const qc = useQueryClient(); return useMutation({ mutationFn: db.clearAllOrders,  onSuccess: () => qc.invalidateQueries({ queryKey: ["kitchenOrders"] }) }); }
 export function useClearDoneOrders() { const qc = useQueryClient(); return useMutation({ mutationFn: db.clearDoneOrders, onSuccess: () => qc.invalidateQueries({ queryKey: ["kitchenOrders"] }) }); }

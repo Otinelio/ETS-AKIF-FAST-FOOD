@@ -109,6 +109,11 @@ export async function addKitchenOrder(
   if (error) throw error;
 }
 
+export async function markOrderPreparing(id: number): Promise<void> {
+  const { error } = await supabase.from("kitchen_orders").update({ status: "preparing" }).eq("id", id);
+  if (error) throw error;
+}
+
 export async function markOrderDone(id: number): Promise<void> {
   const { error } = await supabase.from("kitchen_orders").update({ status: "done" }).eq("id", id);
   if (error) throw error;

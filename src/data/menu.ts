@@ -24,7 +24,7 @@ export interface KitchenOrder {
   items: { id: string; name: string; price: number; quantity: number }[];
   total: number;
   note?: string;
-  status: "pending" | "done";
+  status: "pending" | "preparing" | "done";
   created_at: string;
 }
 
